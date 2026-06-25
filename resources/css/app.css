@@ -539,27 +539,50 @@ h3 {
 }
 
 .gallery-filters {
+    width: fit-content;
+    max-width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 28px;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 28px;
+    padding: 6px;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.035);
 }
 
 .filter-button {
     min-height: 40px;
-    padding: 0 14px;
-    border: 1px solid var(--color-line);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 13px;
+    border: 1px solid transparent;
     border-radius: var(--radius-small);
-    background: rgba(255, 255, 255, 0.04);
     color: #dce4ee;
+    font-size: 0.9rem;
     font-weight: 800;
+    line-height: 1.15;
+    white-space: nowrap;
+    transition: border-color 180ms ease, background 180ms ease, color 180ms ease, box-shadow 180ms ease;
 }
 
-.filter-button:hover,
+.filter-button:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+}
+
 .filter-button.is-active {
     border-color: var(--color-blue);
-    background: rgba(47, 128, 237, 0.16);
+    background: var(--color-blue);
     color: #fff;
+    box-shadow: 0 12px 28px rgba(47, 128, 237, 0.28);
+}
+
+.filter-button.is-active:hover {
+    background: #4691f3;
 }
 
 .gallery-grid {
@@ -1163,6 +1186,19 @@ textarea[aria-invalid="true"] {
         max-width: 780px;
     }
 
+    .gallery-filters {
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scrollbar-width: thin;
+    }
+
+    .filter-button {
+        flex: 0 0 auto;
+    }
+
     .about-media {
         position: static;
     }
@@ -1210,6 +1246,10 @@ textarea[aria-invalid="true"] {
 
     .service-card p {
         min-height: 0;
+    }
+
+    .filter-button {
+        min-height: 38px;
     }
 
     .services-grid,

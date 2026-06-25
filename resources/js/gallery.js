@@ -11,7 +11,14 @@ if (gallery && filters.length > 0) {
             filters.forEach((button) => {
                 const isActive = button === filter;
                 button.classList.toggle('is-active', isActive);
-                button.setAttribute('aria-pressed', String(isActive));
+
+                if (isActive) {
+                    button.setAttribute('aria-current', 'true');
+
+                    return;
+                }
+
+                button.removeAttribute('aria-current');
             });
 
             items.forEach((item) => {

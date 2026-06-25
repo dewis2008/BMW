@@ -9,12 +9,27 @@
             <p>Browse workshop repairs, diagnostics, coding, engine work and BMW performance builds from R&S Auto Works.</p>
         </div>
 
-        <div class="gallery-filters" aria-label="Gallery filters">
-            <a class="filter-button {{ $selectedGalleryCategory ? '' : 'is-active' }}" href="{{ route('home') }}#gallery" data-gallery-filter="All" aria-pressed="{{ $selectedGalleryCategory ? 'false' : 'true' }}">All</a>
+        <nav class="gallery-filters" aria-label="Gallery filters">
+            <a
+                class="filter-button {{ $selectedGalleryCategory ? '' : 'is-active' }}"
+                href="{{ route('home') }}#gallery"
+                data-gallery-filter="All"
+                @if(! $selectedGalleryCategory) aria-current="true" @endif
+            >
+                All
+            </a>
+
             @foreach($galleryCategories as $filter)
-                <a class="filter-button {{ $selectedGalleryCategory === $filter ? 'is-active' : '' }}" href="{{ route('home', ['gallery_category' => $filter]) }}#gallery" data-gallery-filter="{{ $filter }}" aria-pressed="{{ $selectedGalleryCategory === $filter ? 'true' : 'false' }}">{{ $filter }}</a>
+                <a
+                    class="filter-button {{ $selectedGalleryCategory === $filter ? 'is-active' : '' }}"
+                    href="{{ route('home', ['gallery_category' => $filter]) }}#gallery"
+                    data-gallery-filter="{{ $filter }}"
+                    @if($selectedGalleryCategory === $filter) aria-current="true" @endif
+                >
+                    {{ $filter }}
+                </a>
             @endforeach
-        </div>
+        </nav>
 
         <div class="gallery-grid" data-gallery-grid>
             @foreach($galleryItems as $item)
