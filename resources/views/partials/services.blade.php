@@ -1,25 +1,25 @@
 @php
     $serviceGroups = [
         [
-            'icon' => 'DIAG',
+            'image' => '1.png',
             'title' => 'Diagnostics & repairs',
             'summary' => 'Fault finding, everyday repair work and engine support.',
             'items' => ['BMW diagnostics', 'BMW repairs', 'Engine rebuilds'],
         ],
         [
-            'icon' => 'CODE',
+            'image' => '2.png',
             'title' => 'Coding & driveline',
             'summary' => 'Module coding, retrofits and performance-focused gearbox work.',
             'items' => ['BMW coding', '8HP swaps', 'Retrofit support'],
         ],
         [
-            'icon' => 'PERF',
+            'image' => '3.png',
             'title' => 'Performance builds',
             'summary' => 'Practical build support for faster, stronger BMW projects.',
             'items' => ['Turbo builds', 'Drift builds', 'Power and reliability setup'],
         ],
         [
-            'icon' => 'BMW',
+            'image' => '4.png',
             'title' => 'Custom projects',
             'summary' => 'One-off work for BMW and MINI Group vehicles.',
             'items' => ['Custom BMW work', 'MINI Group support'],
@@ -39,7 +39,9 @@
             <div class="services-grid" aria-label="Specialist service groups">
                 @foreach($serviceGroups as $serviceGroup)
                     <article class="service-card">
-                        <span class="service-icon" aria-hidden="true">{{ $serviceGroup['icon'] }}</span>
+                        <span class="service-icon" aria-hidden="true">
+                            <img src="{{ asset("images/work/{$serviceGroup['image']}") }}" alt="" loading="lazy">
+                        </span>
                         <h3>{{ $serviceGroup['title'] }}</h3>
                         <p>{{ $serviceGroup['summary'] }}</p>
 
