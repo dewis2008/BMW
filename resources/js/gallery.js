@@ -1,30 +1,85 @@
-const gallery = document.querySelector('[data-gallery-grid]');
-const filters = document.querySelectorAll('[data-gallery-filter]');
+const gallery = document.querySelector('#gallery');
 
-if (gallery && filters.length > 0) {
-    const items = gallery.querySelectorAll('[data-gallery-item]');
+const galleryControlSelector = '.gallery-filters a, .gallery-pagination a';
 
-    filters.forEach((filter) => {
-        filter.addEventListener('click', () => {
-            const selected = filter.dataset.galleryFilter;
+const galleryUrl = (href) => {
+    const url = new URL(href, window.location.href);
 
-            filters.forEach((button) => {
-                const isActive = button === filter;
-                button.classList.toggle('is-active', isActive);
+    if (url.origin !== window.location.origin || url.pathname !== window.location.pathname) {
+        return null;
+    }
 
-                if (isActive) {
-                    button.setAttribute('aria-current', 'true');
+    return url;
+};
 
-                    return;
-                }
+const replaceGallery = async (url, shouldPushState = true) => {
+    gallery.setAttribute('aria-busy', 'true');
 
-                button.removeAttribute('aria-current');
+    const response = await fetch(url, {
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+        },
+    });
+
+    if (! response.ok) {
+        window.location.href = url.href;
+
+        return;
+    }
+
+    const html = await response.text();
+    const nextDocument = new DOMParser().parseFromString(html, 'text/html');
+    const nextGallery = nextDocument.querySelector('#gallery');
+
+    if (! nextGallery) {
+        window.location.href = url.href;
+
+        return;
+    }
+
+    gallery.innerHTML = nextGallery.innerHTML;
+    gallery.removeAttribute('aria-busy');
+
+    if (shouldPushState) {
+        window.history.pushState(null, '', url);
+    }
+
+    bindGalleryControls();
+};
+
+const bindGalleryControls = () => {
+    gallery.querySelectorAll(galleryControlSelector).forEach((link) => {
+        link.addEventListener('click', (event) => {
+            if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+                return;
+            }
+
+            const url = galleryUrl(link.href);
+
+            if (! url) {
+                return;
+            }
+
+            event.preventDefault();
+            replaceGallery(url).catch(() => {
+                window.location.href = url.href;
             });
+        });
+    });
+};
 
-            items.forEach((item) => {
-                const shouldShow = selected === 'All' || item.dataset.category === selected;
-                item.classList.toggle('is-hidden', ! shouldShow);
-            });
+if (gallery) {
+    bindGalleryControls();
+
+    window.addEventListener('popstate', () => {
+        const url = galleryUrl(window.location.href);
+
+        if (! url) {
+            return;
+        }
+
+        replaceGallery(url, false).catch(() => {
+            window.location.reload();
         });
     });
 }

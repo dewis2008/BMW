@@ -23,7 +23,7 @@ class HomeController extends Controller
 
         return view('home', [
             'galleryItems' => $galleryQuery
-                ->paginate(6, ['*'], 'gallery_page')
+                ->paginate(8, ['*'], 'gallery_page')
                 ->withQueryString()
                 ->fragment('gallery'),
             'galleryCategories' => GalleryItem::categories(),

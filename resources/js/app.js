@@ -4,9 +4,17 @@ import './forms';
 
 document.querySelectorAll('a[href*="#"]').forEach((link) => {
     link.addEventListener('click', (event) => {
+        if (event.defaultPrevented) {
+            return;
+        }
+
         const url = new URL(link.href);
 
-        if (url.pathname !== window.location.pathname || ! url.hash) {
+        if (
+            url.pathname !== window.location.pathname ||
+            url.search !== window.location.search ||
+            ! url.hash
+        ) {
             return;
         }
 

@@ -992,15 +992,26 @@ textarea[aria-invalid="true"] {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 12px;
     margin-top: 30px;
+}
+
+.gallery-pagination-pages {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
 }
 
 .gallery-pagination a,
 .gallery-pagination span {
     min-height: 40px;
+    min-width: 40px;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     padding: 0 14px;
     border: 1px solid var(--color-line);
     border-radius: var(--radius-small);
@@ -1012,6 +1023,23 @@ textarea[aria-invalid="true"] {
 .gallery-pagination a:hover {
     border-color: var(--color-blue);
     background: rgba(47, 128, 237, 0.12);
+}
+
+.gallery-pagination .is-active {
+    border-color: var(--color-blue);
+    background: var(--color-blue);
+    color: #fff;
+}
+
+.gallery-pagination [aria-disabled="true"] {
+    color: var(--color-muted);
+}
+
+.gallery-pagination-status {
+    margin: 12px 0 0;
+    color: var(--color-muted);
+    font-weight: 800;
+    text-align: center;
 }
 
 .gallery-empty {

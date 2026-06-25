@@ -49,21 +49,54 @@
         @endif
 
         @if($galleryItems->hasPages())
+            @php
+                $currentPage = $galleryItems->currentPage();
+                $lastPage = $galleryItems->lastPage();
+                $startPage = max(1, $currentPage - 2);
+                $endPage = min($lastPage, $currentPage + 2);
+            @endphp
+
             <nav class="gallery-pagination" aria-label="Gallery pages">
                 @if($galleryItems->onFirstPage())
-                    <span>Previous</span>
+                    <span aria-disabled="true">Previous</span>
                 @else
                     <a href="{{ $galleryItems->previousPageUrl() }}">Previous</a>
                 @endif
 
-                <span>Page {{ $galleryItems->currentPage() }} of {{ $galleryItems->lastPage() }}</span>
+                <div class="gallery-pagination-pages">
+                    @if($startPage > 1)
+                        <a href="{{ $galleryItems->url(1) }}">1</a>
+
+                        @if($startPage > 2)
+                            <span aria-hidden="true">...</span>
+                        @endif
+                    @endif
+
+                    @for($page = $startPage; $page <= $endPage; $page++)
+                        @if($page === $currentPage)
+                            <span class="is-active" aria-current="page">{{ $page }}</span>
+                        @else
+                            <a href="{{ $galleryItems->url($page) }}">{{ $page }}</a>
+                        @endif
+                    @endfor
+
+                    @if($endPage < $lastPage)
+                        @if($endPage < $lastPage - 1)
+                            <span aria-hidden="true">...</span>
+                        @endif
+
+                        <a href="{{ $galleryItems->url($lastPage) }}">{{ $lastPage }}</a>
+                    @endif
+                </div>
 
                 @if($galleryItems->hasMorePages())
                     <a href="{{ $galleryItems->nextPageUrl() }}">Next</a>
                 @else
-                    <span>Next</span>
+                    <span aria-disabled="true">Next</span>
                 @endif
             </nav>
+
+            <p class="gallery-pagination-status">Page {{ $currentPage }} of {{ $lastPage }}</p>
         @endif
     </div>
 </section>

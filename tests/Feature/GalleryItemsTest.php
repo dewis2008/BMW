@@ -15,15 +15,28 @@ class GalleryItemsTest extends TestCase
 
     public function test_public_gallery_is_paginated(): void
     {
+        foreach (range(1, 8) as $index) {
+            GalleryItem::query()->create([
+                'title' => sprintf('Dummy paginated gallery item %02d', $index),
+                'category' => 'Repairs',
+                'image_path' => 'images/work/rs-workshop-bmw.jpg',
+                'image_alt' => sprintf('Dummy paginated BMW repair item %02d', $index),
+                'description' => 'Dummy gallery item used to verify the public gallery pagination.',
+                'sort_order' => 100 + $index,
+                'is_published' => true,
+            ]);
+        }
+
         $this->get(route('home'))
             ->assertOk()
             ->assertSee('BMW fault finding')
+            ->assertDontSee('Dummy paginated gallery item 01')
             ->assertSee('Page 1 of 2')
-            ->assertDontSee('Turbo BMW projects');
+            ->assertSee('?gallery_page=2#gallery', false);
 
         $this->get(route('home', ['gallery_page' => 2]))
             ->assertOk()
-            ->assertSee('Turbo BMW projects')
+            ->assertSee('Dummy paginated gallery item 01')
             ->assertSee('Page 2 of 2');
     }
 
