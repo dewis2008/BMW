@@ -24,9 +24,12 @@
                 'image' => asset('images/work/rs-workshop-sign.jpg'),
                 'address' => [
                     '@type' => 'PostalAddress',
+                    'streetAddress' => '7 Auster Cl',
                     'addressLocality' => 'Norwich',
+                    'postalCode' => 'NR6 6BD',
                     'addressCountry' => 'GB',
                 ],
+                'hasMap' => 'https://www.google.com/maps/search/?api=1&query=7%20Auster%20Cl%2C%20Norwich%2C%20United%20Kingdom%2C%20NR6%206BD',
                 'areaServed' => 'Norwich, UK',
                 'sameAs' => [
                     'https://www.facebook.com/AutoworksRS/',

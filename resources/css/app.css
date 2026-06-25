@@ -654,6 +654,57 @@ h3 {
     color: var(--color-muted);
 }
 
+.contact-map {
+    display: grid;
+    gap: 16px;
+    margin-top: 28px;
+    overflow: hidden;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.045);
+    box-shadow: var(--shadow-soft);
+}
+
+.contact-map-copy {
+    padding: 18px 18px 0;
+}
+
+.contact-map-copy span {
+    color: var(--color-gold);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.contact-map-copy address {
+    margin: 8px 0 10px;
+    color: #e9eff6;
+    font-style: normal;
+    font-weight: 750;
+    line-height: 1.45;
+}
+
+.contact-map-copy a {
+    color: var(--color-gold);
+    font-weight: 850;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+}
+
+.contact-map-copy a:hover {
+    color: #f0d481;
+}
+
+.contact-map-frame {
+    width: 100%;
+    min-height: 300px;
+    display: block;
+    border: 0;
+    background: var(--color-panel);
+}
+
 .why-grid,
 .contact-notes {
     display: grid;
@@ -1328,6 +1379,14 @@ textarea[aria-invalid="true"] {
     .login-panel,
     .admin-panel {
         padding: 20px;
+    }
+
+    .contact-map-copy {
+        padding: 16px 16px 0;
+    }
+
+    .contact-map-frame {
+        min-height: 250px;
     }
 
     .brand small {

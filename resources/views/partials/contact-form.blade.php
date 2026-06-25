@@ -3,11 +3,25 @@
         <div class="contact-intro">
             <p class="eyebrow">Contact</p>
             <h2 id="contact-heading">Request a quote from R&S Auto Works.</h2>
-            <p>Use the form for diagnostics, repair, coding, 8HP swap, turbo build, drift build, engine rebuild or custom BMW project enquiries.</p>
-            <div class="contact-notes">
-                <span>Location: Norwich, UK</span>
-                <span>Specialist: BMW and MINI Group vehicles</span>
-                <span>Response: best next step after review</span>
+
+            <div class="contact-map">
+                <div class="contact-map-copy">
+                    <span>Shop address</span>
+                    <address>
+                        7 Auster Cl,<br>
+                        Norwich, United Kingdom,<br>
+                        NR6 6BD
+                    </address>
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=7%20Auster%20Cl%2C%20Norwich%2C%20United%20Kingdom%2C%20NR6%206BD" target="_blank" rel="noopener">Open in Google Maps</a>
+                </div>
+                <iframe
+                    class="contact-map-frame"
+                    title="Map showing R&S Auto Works at 7 Auster Cl, Norwich"
+                    src="https://www.google.com/maps?q=7%20Auster%20Cl%2C%20Norwich%2C%20United%20Kingdom%2C%20NR6%206BD&amp;output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    allowfullscreen>
+                </iframe>
             </div>
         </div>
 
