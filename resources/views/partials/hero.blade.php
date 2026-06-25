@@ -10,12 +10,5 @@
             <a class="button button-primary" href="#contact">Request a Quote</a>
             <a class="button button-secondary" href="#gallery">View Our Work</a>
         </div>
-
-        <div class="trust-strip" aria-label="Workshop specialisms">
-            <span>BMW & MINI Specialists</span>
-            <span>Diagnostics & Coding</span>
-            <span>Performance Builds</span>
-            <span>Custom Projects</span>
-        </div>
     </div>
 </section>
