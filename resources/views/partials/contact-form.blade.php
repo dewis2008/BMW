@@ -43,7 +43,7 @@
 
             <div class="form-grid">
                 <div class="field">
-                    <label for="name">Name</label>
+                    <label for="name">Name <span class="required-marker" aria-hidden="true">*</span></label>
                     <input id="name" name="name" type="text" value="{{ old('name') }}" maxlength="100" autocomplete="name" data-required>
                     @error('name', 'quote')
                         <p class="field-error">{{ $message }}</p>
@@ -51,7 +51,7 @@
                 </div>
 
                 <div class="field">
-                    <label for="email">Email</label>
+                    <label for="email">Email <span class="required-marker" aria-hidden="true">*</span></label>
                     <input id="email" name="email" type="email" value="{{ old('email') }}" maxlength="150" autocomplete="email" data-required>
                     @error('email', 'quote')
                         <p class="field-error">{{ $message }}</p>
@@ -67,15 +67,15 @@
                 </div>
 
                 <div class="field">
-                    <label for="vehicle_model">Vehicle model</label>
-                    <input id="vehicle_model" name="vehicle_model" type="text" value="{{ old('vehicle_model') }}" maxlength="150" placeholder="BMW 335i, MINI Cooper S, E46 drift car">
+                    <label for="vehicle_model">Vehicle model <span class="required-marker" aria-hidden="true">*</span></label>
+                    <input id="vehicle_model" name="vehicle_model" type="text" value="{{ old('vehicle_model') }}" maxlength="150" placeholder="BMW 335i, MINI Cooper S, E46 drift car" data-required>
                     @error('vehicle_model', 'quote')
                         <p class="field-error">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div class="field">
-                    <label for="service_required">Service required</label>
+                    <label for="service_required">Service required <span class="required-marker" aria-hidden="true">*</span></label>
                     <select id="service_required" name="service_required" data-required>
                         <option value="">Select a service</option>
                         @foreach(['Diagnostics', 'Repair', 'Coding', 'Engine rebuild', '8HP swap', 'Drift build', 'Turbo build', 'Performance build', 'Custom project', 'Other'] as $service)
@@ -88,7 +88,7 @@
                 </div>
 
                 <div class="field">
-                    <label for="preferred_contact_method">Preferred contact method</label>
+                    <label for="preferred_contact_method">Preferred contact method <span class="required-marker" aria-hidden="true">*</span></label>
                     <select id="preferred_contact_method" name="preferred_contact_method" data-required>
                         <option value="">Select contact method</option>
                         @foreach(['Email', 'Phone', 'WhatsApp'] as $method)
@@ -102,7 +102,7 @@
             </div>
 
             <div class="field">
-                <label for="message">Message</label>
+                <label for="message">Message <span class="required-marker" aria-hidden="true">*</span></label>
                 <textarea id="message" name="message" rows="6" minlength="10" maxlength="3000" data-required data-min-length="10" placeholder="Tell us the fault, work needed, vehicle details, current modifications and any deadlines.">{{ old('message') }}</textarea>
                 @error('message', 'quote')
                     <p class="field-error">{{ $message }}</p>

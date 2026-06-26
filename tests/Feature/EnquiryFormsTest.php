@@ -48,6 +48,7 @@ class EnquiryFormsTest extends TestCase
         $response = $this->post(route('quoteRequests.store'), [
             'name' => 'Spam Bot',
             'email' => 'spam@example.com',
+            'vehicle_model' => 'BMW 320d',
             'service_required' => 'Other',
             'preferred_contact_method' => 'Email',
             'message' => 'This message should be rejected by the honeypot.',
@@ -59,6 +60,19 @@ class EnquiryFormsTest extends TestCase
         $this->assertDatabaseMissing('quote_requests', [
             'email' => 'spam@example.com',
         ]);
+    }
+
+    public function test_quote_requests_require_a_vehicle_model(): void
+    {
+        $response = $this->post(route('quoteRequests.store'), [
+            'name' => 'Alex Driver',
+            'email' => 'alex@example.com',
+            'service_required' => 'Diagnostics',
+            'preferred_contact_method' => 'Email',
+            'message' => 'The car has a drivetrain warning and needs diagnostic work.',
+        ]);
+
+        $response->assertSessionHasErrors('vehicle_model', null, 'quote');
     }
 
     public function test_quick_contact_messages_are_stored_and_sent(): void

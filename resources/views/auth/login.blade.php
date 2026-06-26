@@ -14,7 +14,7 @@
             @csrf
 
             <div class="field">
-                <label for="email">Email</label>
+                <label for="email">Email <span class="required-marker" aria-hidden="true">*</span></label>
                 <input id="email" name="email" type="email" value="{{ old('email') }}" autocomplete="email" autofocus required>
                 @error('email')
                     <p class="field-error">{{ $message }}</p>
@@ -22,7 +22,7 @@
             </div>
 
             <div class="field">
-                <label for="password">Password</label>
+                <label for="password">Password <span class="required-marker" aria-hidden="true">*</span></label>
                 <input id="password" name="password" type="password" autocomplete="current-password" required>
                 @error('password')
                     <p class="field-error">{{ $message }}</p>

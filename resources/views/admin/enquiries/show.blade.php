@@ -55,7 +55,7 @@
                     @csrf
                     @method('patch')
                     <div class="field">
-                        <label for="status">Status</label>
+                        <label for="status">Status <span class="required-marker" aria-hidden="true">*</span></label>
                         <select id="status" name="status">
                             @foreach($statuses as $status)
                                 <option value="{{ $status }}" @selected($enquiry->status === $status)>{{ ucfirst($status) }}</option>

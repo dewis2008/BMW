@@ -26,7 +26,7 @@ class StoreQuoteRequestRequest extends FormRequest
             'name' => ['required', 'string', 'max:100'],
             'email' => ['required', 'email', 'max:150'],
             'phone' => ['nullable', 'string', 'max:50'],
-            'vehicle_model' => ['nullable', 'string', 'max:150'],
+            'vehicle_model' => ['required', 'string', 'max:150'],
             'service_required' => [
                 'required',
                 'string',

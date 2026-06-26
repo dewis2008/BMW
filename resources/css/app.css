@@ -781,6 +781,10 @@ h3 {
     font-weight: 800;
 }
 
+.required-marker {
+    color: var(--color-red);
+}
+
 .checkbox-field {
     display: flex;
     align-items: center;

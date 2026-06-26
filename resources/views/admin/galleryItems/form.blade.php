@@ -7,7 +7,7 @@
 
     <div class="form-grid">
         <div class="field">
-            <label for="title">Title</label>
+            <label for="title">Title <span class="required-marker" aria-hidden="true">*</span></label>
             <input id="title" name="title" type="text" value="{{ old('title', $galleryItem->title) }}" maxlength="120" data-required>
             @error('title')
                 <p class="field-error">{{ $message }}</p>
@@ -15,7 +15,7 @@
         </div>
 
         <div class="field">
-            <label for="category">Category</label>
+            <label for="category">Category <span class="required-marker" aria-hidden="true">*</span></label>
             <select id="category" name="category" data-required>
                 <option value="">Select a category</option>
                 @foreach($categories as $category)
@@ -50,7 +50,7 @@
     @endif
 
     <div class="field">
-        <label for="image">Image {{ $galleryItem->exists ? '(optional)' : '' }}</label>
+        <label for="image">Image @unless($galleryItem->exists)<span class="required-marker" aria-hidden="true">*</span>@else (optional)@endunless</label>
         <input id="image" name="image" type="file" accept="image/jpeg,image/png,image/webp" {{ $galleryItem->exists ? '' : 'data-required' }}>
         @error('image')
             <p class="field-error">{{ $message }}</p>
@@ -58,7 +58,7 @@
     </div>
 
     <div class="field">
-        <label for="image_alt">Image alt text</label>
+        <label for="image_alt">Image alt text <span class="required-marker" aria-hidden="true">*</span></label>
         <input id="image_alt" name="image_alt" type="text" value="{{ old('image_alt', $galleryItem->image_alt) }}" maxlength="180" data-required>
         @error('image_alt')
             <p class="field-error">{{ $message }}</p>
@@ -66,7 +66,7 @@
     </div>
 
     <div class="field">
-        <label for="description">Short description</label>
+        <label for="description">Short description <span class="required-marker" aria-hidden="true">*</span></label>
         <textarea id="description" name="description" rows="5" maxlength="500" data-required>{{ old('description', $galleryItem->description) }}</textarea>
         @error('description')
             <p class="field-error">{{ $message }}</p>
