@@ -65,6 +65,12 @@
 
     <div class="footer-bottom section-shell">
         <p>&copy; {{ date('Y') }} R&S Auto Works. All rights reserved.</p>
-        <p>Diagnostics, repairs, coding, engine work and BMW performance builds.</p>
+        <nav class="footer-legal-links" aria-label="Legal navigation">
+            <a href="{{ route('privacyPolicy') }}">Privacy Policy</a>
+            <a href="{{ route('cookiesPolicy') }}">Cookies Policy</a>
+            @if(config('services.google_analytics.measurement_id'))
+                <button type="button" data-cookie-preferences>Cookie settings</button>
+            @endif
+        </nav>
     </div>
 </footer>

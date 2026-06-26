@@ -42,6 +42,7 @@ MAIL_MAILER=log
 MAIL_FROM_ADDRESS="website@example.com"
 MAIL_FROM_NAME="${APP_NAME}"
 BUSINESS_EMAIL=garage@example.com
+GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
 ```
 
 For local development, SQLite is already supported:
@@ -78,6 +79,23 @@ MAIL_PASSWORD=null
 ```
 
 Production options can use any Laravel-supported mail driver such as SMTP, Postmark, Resend or SES.
+
+## Privacy, Cookies and Analytics
+
+Public legal pages are available at:
+
+```text
+/privacy-policy
+/cookies-policy
+```
+
+Google Analytics is optional and only loads after a visitor accepts analytics cookies in the consent banner. Set the GA4 measurement ID in `.env`:
+
+```env
+GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
+```
+
+If `GOOGLE_ANALYTICS_ID` is empty, the analytics banner and Cookie settings control are not shown.
 
 ## Admin User
 

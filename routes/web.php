@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::view('privacy-policy', 'privacyPolicy')->name('privacyPolicy');
+Route::view('cookies-policy', 'cookiesPolicy')->name('cookiesPolicy');
+
 Route::post('quote-requests', [QuoteRequestController::class, 'store'])
     ->middleware('throttle:quote-submissions')
     ->name('quoteRequests.store');

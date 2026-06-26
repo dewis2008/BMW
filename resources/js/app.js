@@ -1,6 +1,7 @@
 import './mobile-menu';
 import './gallery';
 import './forms';
+import './cookie-consent';
 
 document.querySelectorAll('a[href*="#"]').forEach((link) => {
     link.addEventListener('click', (event) => {
