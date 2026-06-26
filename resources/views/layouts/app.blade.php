@@ -31,6 +31,20 @@
                 ],
                 'hasMap' => 'https://www.google.com/maps/search/?api=1&query=7%20Auster%20Cl%2C%20Norwich%2C%20United%20Kingdom%2C%20NR6%206BD',
                 'areaServed' => 'Norwich, UK',
+                'openingHoursSpecification' => [
+                    [
+                        '@type' => 'OpeningHoursSpecification',
+                        'dayOfWeek' => [
+                            'Monday',
+                            'Tuesday',
+                            'Wednesday',
+                            'Thursday',
+                            'Friday',
+                        ],
+                        'opens' => '08:30',
+                        'closes' => '18:00',
+                    ],
+                ],
                 'sameAs' => [
                     'https://www.facebook.com/AutoworksRS/',
                     'https://www.instagram.com/rsautoworksltdnorwich',
