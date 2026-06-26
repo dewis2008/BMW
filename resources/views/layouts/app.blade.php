@@ -13,6 +13,15 @@
         <meta property="og:url" content="{{ url()->current() }}">
         <meta property="og:image" content="{{ asset('images/work/rs-drift-hero.jpg') }}">
         <meta name="twitter:card" content="summary_large_image">
+        <link
+            rel="preload"
+            as="image"
+            href="{{ asset('images/work/rs-drift-hero-960.webp') }}"
+            imagesrcset="{{ asset('images/work/rs-drift-hero-960.webp') }} 960w, {{ asset('images/work/rs-drift-hero-1440.webp') }} 1440w, {{ asset('images/work/rs-drift-hero-2048.webp') }} 2048w"
+            imagesizes="100vw"
+            type="image/webp"
+            fetchpriority="high"
+        >
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @php
             $schema = [

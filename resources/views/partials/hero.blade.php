@@ -1,5 +1,21 @@
 <section class="hero" id="home" aria-labelledby="hero-heading">
-    <img class="hero-image" src="{{ asset('images/work/rs-drift-hero.jpg') }}" alt="R&S Auto Works BMW drift car on track" fetchpriority="high">
+    <picture>
+        <source
+            type="image/webp"
+            srcset="{{ asset('images/work/rs-drift-hero-960.webp') }} 960w, {{ asset('images/work/rs-drift-hero-1440.webp') }} 1440w, {{ asset('images/work/rs-drift-hero-2048.webp') }} 2048w"
+            sizes="100vw"
+        >
+        <img
+            class="hero-image"
+            src="{{ asset('images/work/rs-drift-hero.jpg') }}"
+            width="2048"
+            height="1366"
+            alt="R&S Auto Works BMW drift car on track"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+        >
+    </picture>
     <div class="hero-overlay"></div>
     <div class="hero-inner section-shell">
         <p class="eyebrow">Norwich BMW and MINI specialist workshop</p>
