@@ -59,4 +59,9 @@ class StoreQuoteRequestRequest extends FormRequest
             'website.prohibited' => 'We could not process this request. Please try again.',
         ];
     }
+
+    protected function getRedirectUrl(): string
+    {
+        return route('home').'#quote-form';
+    }
 }

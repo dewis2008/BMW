@@ -79,6 +79,11 @@ class GalleryItemsTest extends TestCase
         ]);
 
         $this->actingAs($admin)
+            ->get(route('admin.galleryItems.index'))
+            ->assertOk()
+            ->assertSee('Fresh turbo build');
+
+        $this->actingAs($admin)
             ->patch(route('admin.galleryItems.update', $galleryItem), [
                 'title' => 'Updated turbo build',
                 'category' => 'Performance Builds',

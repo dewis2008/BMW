@@ -25,11 +25,12 @@
             </div>
         </div>
 
-        <form class="quote-form" action="{{ route('quoteRequests.store') }}" method="post" data-validate-form data-loading-label="Sending...">
+        <form id="quote-form" class="quote-form" action="{{ route('quoteRequests.store') }}" method="post" data-validate-form data-loading-label="Sending...">
             @csrf
+            @php($successMessage = session('quote_success') ?? session('contact_success'))
 
-            @if(session('quote_success'))
-                <div class="form-alert form-alert-success" role="status">{{ session('quote_success') }}</div>
+            @if($successMessage)
+                <div class="form-alert form-alert-success" role="status">{{ $successMessage }}</div>
             @endif
 
             @if($errors->quote->any())

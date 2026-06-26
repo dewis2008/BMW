@@ -29,6 +29,9 @@ class ContactMessageController extends Controller
             }
         }
 
-        return back()->with('contact_success', 'Thanks. Your message has been sent to R&S Auto Works.');
+        return redirect()
+            ->route('home')
+            ->withFragment('quote-form')
+            ->with('contact_success', 'Thanks. Your message has been sent to R&S Auto Works.');
     }
 }

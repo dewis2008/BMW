@@ -29,7 +29,7 @@ class EnquiryFormsTest extends TestCase
         ]);
 
         $response
-            ->assertRedirect()
+            ->assertRedirect(route('home').'#quote-form')
             ->assertSessionHas('quote_success');
 
         $this->assertDatabaseHas('quote_requests', [
@@ -55,7 +55,9 @@ class EnquiryFormsTest extends TestCase
             'website' => 'https://spam.example',
         ]);
 
-        $response->assertSessionHasErrors('website', null, 'quote');
+        $response
+            ->assertRedirect(route('home').'#quote-form')
+            ->assertSessionHasErrors('website', null, 'quote');
 
         $this->assertDatabaseMissing('quote_requests', [
             'email' => 'spam@example.com',
@@ -72,7 +74,9 @@ class EnquiryFormsTest extends TestCase
             'message' => 'The car has a drivetrain warning and needs diagnostic work.',
         ]);
 
-        $response->assertSessionHasErrors('vehicle_model', null, 'quote');
+        $response
+            ->assertRedirect(route('home').'#quote-form')
+            ->assertSessionHasErrors('vehicle_model', null, 'quote');
     }
 
     public function test_quick_contact_messages_are_stored_and_sent(): void
@@ -88,7 +92,7 @@ class EnquiryFormsTest extends TestCase
         ]);
 
         $response
-            ->assertRedirect()
+            ->assertRedirect(route('home').'#quote-form')
             ->assertSessionHas('contact_success');
 
         $this->assertDatabaseHas('contact_messages', [

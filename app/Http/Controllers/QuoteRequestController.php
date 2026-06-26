@@ -29,6 +29,9 @@ class QuoteRequestController extends Controller
             }
         }
 
-        return back()->with('quote_success', 'Thanks. Your request has been received and R&S Auto Works will get back to you.');
+        return redirect()
+            ->route('home')
+            ->withFragment('quote-form')
+            ->with('quote_success', 'Thanks. Your request has been received and R&S Auto Works will get back to you.');
     }
 }
