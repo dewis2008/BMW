@@ -22,7 +22,7 @@
             <a href="{{ route('home') }}#gallery">Gallery</a>
             <a href="{{ route('home') }}#about">About</a>
             <a href="{{ route('home') }}#contact">Contact</a>
-            <a class="button button-small button-primary" href="{{ route('home') }}#contact">Request a Quote</a>
+            <a class="button button-primary" href="{{ route('home') }}#contact">Request a Quote</a>
         </nav>
     </div>
 </header>
