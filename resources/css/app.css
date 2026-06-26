@@ -792,6 +792,14 @@ h3 {
     margin-bottom: 18px;
 }
 
+.checkbox-field input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    margin: 0;
+    accent-color: var(--color-blue-action);
+}
+
 input,
 select,
 textarea {
