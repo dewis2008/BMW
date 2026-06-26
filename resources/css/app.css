@@ -8,6 +8,8 @@
     --color-text: #f4f7fb;
     --color-muted: #aeb9c7;
     --color-blue: #2f80ed;
+    --color-blue-action: #1d5fbf;
+    --color-blue-action-hover: #276ed0;
     --color-blue-dark: #0f3d78;
     --color-red: #e43d30;
     --color-gold: #c5a45f;
@@ -211,13 +213,13 @@ button {
 }
 
 .button-primary {
-    background: var(--color-blue);
+    background: var(--color-blue-action);
     color: #fff;
-    box-shadow: 0 12px 28px rgba(47, 128, 237, 0.28);
+    box-shadow: 0 12px 28px rgba(29, 95, 191, 0.32);
 }
 
 .button-primary:hover {
-    background: #4691f3;
+    background: var(--color-blue-action-hover);
 }
 
 .button-secondary {
@@ -574,14 +576,14 @@ h3 {
 }
 
 .filter-button.is-active {
-    border-color: var(--color-blue);
-    background: var(--color-blue);
+    border-color: var(--color-blue-action);
+    background: var(--color-blue-action);
     color: #fff;
-    box-shadow: 0 12px 28px rgba(47, 128, 237, 0.28);
+    box-shadow: 0 12px 28px rgba(29, 95, 191, 0.32);
 }
 
 .filter-button.is-active:hover {
-    background: #4691f3;
+    background: var(--color-blue-action-hover);
 }
 
 .gallery-grid {
