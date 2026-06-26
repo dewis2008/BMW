@@ -10,14 +10,14 @@
             <p>R&S Auto Works is a BMW and MINI specialist workshop based in Norwich. The workshop focuses on accurate diagnostics, quality repairs, coding, engine work and custom BMW performance projects.</p>
             <p>From everyday BMW maintenance to serious 8HP swaps, turbo builds and drift projects, R&S Auto Works provides specialist knowledge for BMW and MINI owners who want their vehicle understood properly.</p>
 
-            <div class="why-grid" aria-label="Why choose R&S Auto Works">
-                <span>BMW and MINI Group focus</span>
-                <span>Fast fault finding</span>
-                <span>Diagnostics and programming</span>
-                <span>Daily repairs and maintenance</span>
-                <span>Advanced performance projects</span>
-                <span>Real BMW builds and modifications</span>
-            </div>
+            <ul class="why-grid" aria-label="Why choose R&S Auto Works">
+                <li>BMW and MINI Group focus</li>
+                <li>Fast fault finding</li>
+                <li>Diagnostics and programming</li>
+                <li>Daily repairs and maintenance</li>
+                <li>Advanced performance projects</li>
+                <li>Real BMW builds and modifications</li>
+            </ul>
         </div>
     </div>
 </section>
