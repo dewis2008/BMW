@@ -2,6 +2,10 @@ const gallery = document.querySelector('#gallery');
 
 const galleryControlSelector = '.gallery-filters a, .gallery-pagination a';
 
+const scrollToGalleryTop = () => {
+    gallery.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
 const galleryUrl = (href) => {
     const url = new URL(href, window.location.href);
 
@@ -12,7 +16,7 @@ const galleryUrl = (href) => {
     return url;
 };
 
-const replaceGallery = async (url, shouldPushState = true) => {
+const replaceGallery = async (url, shouldPushState = true, shouldScrollToGallery = false) => {
     gallery.setAttribute('aria-busy', 'true');
 
     const response = await fetch(url, {
@@ -45,6 +49,10 @@ const replaceGallery = async (url, shouldPushState = true) => {
     }
 
     bindGalleryControls();
+
+    if (shouldScrollToGallery) {
+        scrollToGalleryTop();
+    }
 };
 
 const bindGalleryControls = () => {
@@ -61,7 +69,7 @@ const bindGalleryControls = () => {
             }
 
             event.preventDefault();
-            replaceGallery(url).catch(() => {
+            replaceGallery(url, true, link.closest('.gallery-pagination') !== null).catch(() => {
                 window.location.href = url.href;
             });
         });
@@ -78,7 +86,7 @@ if (gallery) {
             return;
         }
 
-        replaceGallery(url, false).catch(() => {
+        replaceGallery(url, false, url.searchParams.has('gallery_page')).catch(() => {
             window.location.reload();
         });
     });
